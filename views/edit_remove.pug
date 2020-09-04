@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+  h3= title
+  form(action="" method="POST")
+    .form_input
+      label(for="hotel_id") Hotel id:
+      input(type="text" name="hotel_id" id="hotel_id")
+      p or:
+    .form_input
+      label(for="hotel_name") Hotel name:
+      input(type="text" name="hotel_name" id="hotel_name")
+    .form_input
+      button(type="submit" class="button_small") CONFIRM

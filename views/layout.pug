@@ -1,0 +1,67 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+      nav
+        a(href="/")
+          img#logo(src="/images/logo.png")
+        ul
+          if !user
+            li
+              a(href="/sign-up") sign up
+            li
+              a(href="/login") login
+          else
+            li
+              a(href="/my-account") my bookings / account
+            li
+              a(href="/logout") logout (#{user.first_name})
+            
+      .search_nav 
+        form(action='/results' method="POST")
+          .input_wrapper
+            label(for="destination") Destination
+            input(type="text" id="destination" name="destination" required)
+          .input_wrapper
+            label(for="duration") Duration (nights)
+            input(type="text" id="duration" name="duration" required)
+          .input_wrapper
+            label(for="departure-date") Departure date
+            input(type="date" id="departure-date" name="dateOfDeparture" required)
+          .input_wrapper
+            label(for="number-guests") Number of guests
+            input(type="number" min="1" id="number-guests" name="numberOfGuests" required)
+          
+          .input_wrapper
+            select(name="stars")
+              option(value="1") Min 1 Star
+              option(value="2") Min 2 Star
+              option(value="3") Min 3 Star
+              option(value="4") Min 4 Star
+              option(value="5") Min 5 Star
+
+          .input_wrapper
+            select(name="sort")
+              option(value="1") Price: Low - High
+              option(value="-1") Price: High - Low
+
+          .input_wrapper
+            button(type="submit") SEARCH!
+
+      - const values = Object.values(flash)
+      - const keys = Object.keys(flash)
+      if keys.length > 0
+          div(class=`message message_${keys}`)
+            span= values
+            span.close_btn(onclick="this.parentNode.remove()" ) &times;
+      
+      if url === '/'
+        img(src="/images/beach.jpg")
+
+    block content
+   

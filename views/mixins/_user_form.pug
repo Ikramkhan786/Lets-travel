@@ -1,0 +1,26 @@
+mixin userForm()
+
+  form(action="" method="POST")
+    .form_input 
+      label(for="first_name") First name:   
+      input(type="text" name="first_name" id="first_name" required value=user===undefined ? '' : user.first_name)   
+    .form_input
+      label(for="surname") Surname:
+      input(type="text" name="surname" id="surname" required value=user===undefined ? '' : user.surname)
+
+    .form_input 
+      label(for="email") Email:   
+      input(type="email" name="email" id="email" required value=user===undefined ? '' : user.email)
+    .form_input 
+      label(for="confirm_email") Confirm email:   
+      input(type="email" name="confirm_email" id="confirm_email" required  value=user===undefined ? '' : user.confirm_email)
+
+    .form_input 
+      label(for="password") Password:   
+      input(type="password" name="password" id="password" required)
+    .form_input 
+      label(for="confirm_password") Confirm password:   
+      input(type="password" name="confirm_password" id="confirm_password" required)
+  
+    .form_input
+      button(type="submit" class="button_small") CONFIRM

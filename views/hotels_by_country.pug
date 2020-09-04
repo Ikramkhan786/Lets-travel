@@ -1,0 +1,12 @@
+extends layout
+
+include mixins/_hotel
+
+block content
+  h2= title
+  each hotel in countryList
+    .hotel_wrapper
+      +hotel(hotel)
+  else
+    li There are no hotels.
+  

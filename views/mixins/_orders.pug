@@ -1,0 +1,11 @@
+mixin orders(order)
+
+  .bookings
+    ul
+      li= `Order ref: ${order._id}` 
+      each data in order.hotel_data
+        li= `Hotel: ${data.hotel_name}`
+        li= `Country: ${data.country}`
+        li= `Departure: ${order.order_details.dateOfDeparture}`
+        li= `Nights: ${order.order_details.duration}`
+        li= `Guests: ${order.order_details.numberOfGuests}`

@@ -1,0 +1,10 @@
+extends layout
+
+include mixins/_hotel_form
+
+block content 
+  a(href="/admin") 
+    button(type="button" class="button_small") Back to admin
+  h2= title
+  +hotelForm(hotel)
+    

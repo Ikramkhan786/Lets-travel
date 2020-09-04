@@ -1,0 +1,11 @@
+extends layout
+include mixins/_user_form
+block content
+
+  h2= title
+  hr
+  if errors 
+    ul
+      for error in errors
+        li= error.msg 
+  +userForm()

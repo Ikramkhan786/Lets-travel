@@ -1,0 +1,29 @@
+
+mixin hotelForm(hotel={})
+
+  form(action="" method="POST" enctype="multipart/form-data")
+    .form_input
+      label(for="hotel_name") Hotel name:
+      input(type="text" name="hotel_name" id="hotel_name" required value=hotel.hotel_name)
+    .form_input
+      label(for="hotel_description") Hotel description:
+      textarea(name="hotel_description" id="hotel_description" cols="30" rows="10" required)=hotel.hotel_description
+    .form_input
+      label(for="image") Hotel image:
+      input(type="file" name="image" id="image" )
+    .form_input
+      label(for="star_rating") Star rating:
+      input(type="number" name="star_rating" id="star_rating" min="1" max="5"  required value=hotel.star_rating )
+    .form_input
+      label(for="country") Country:
+      input(type="text" name="country" id="country" required  value=hotel.country )
+    .form_input
+      label(for="cost_per_night") Cost per night:
+      input(type="number" name="cost_per_night" id="cost_per_night" min="1" required  value=hotel.cost_per_night )
+    .form_input
+      label(for="available") Available:
+      input(type="radio" id="available" name="available" value="true" checked)
+      label(for="unavailable") Unavailable:
+      input(type="radio" id="unavailable" name="available" value="false")
+    .form_input
+      button(type="submit" class="button_small") CONFIRM

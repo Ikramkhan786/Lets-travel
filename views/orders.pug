@@ -1,0 +1,11 @@
+extends layout
+include mixins/_orders
+block content
+
+    
+  h3= title 
+  hr
+
+  each order in orders
+    +orders(order)
+  
